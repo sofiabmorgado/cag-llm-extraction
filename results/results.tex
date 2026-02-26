@@ -1,0 +1,78 @@
+\begin{tabular}{l|llll|l}
+\toprule
+ & Extraction  &  &  & & Value \\
+Model & Accuracy & Precision & Recall & F1 & Accuracy\\
+\midrule
+Baseline RegEx &  0.943 & 0.832    &  0.727  &  0.776 & 0.888\\
+\midrule
+Mistral 0-S  & 0.915  &   0.648   &   0.799  &   0.714 &  0.893 \\
+Mistral F-S  &  0.886  &   0.575   &  0.627   &   0.600 & 0.903 \\
+Llama 0-S &  0.948  & 0.769  &  0.872 & 0.817 & 0.885 \\
+Llama F-S &  0.902  &  0.608  &  0.806  & 0.693 & 0.906 \\
+GPT-OSS 0-S  & 0.819  &   0.334   &   0.336  &   0.335 & 0.041 \\
+GPT-OSS F-S  & \textbf{0.968} &  0.884  &  0.876 &  0.880 & 0.940 \\
+\midrule
+F-S with Implausible Values &  & &  &  \\
+\midrule
+Mistral F-S Implausible values &  0.806  &   0.300   &  0.323   &   0.311 & 0.046  \\
+Llama F-S Implausible values &  0.944  &  0.791  &  0.798  & 0.795 & 0.926  \\
+GPT-OSS F-S Implausible values & \textbf{0.968} &  \textbf{0.885}   &  \textbf{0.881} &  \textbf{0.883} & 0.943 \\
+\midrule
+Confirmation with RegEx &  & &  &  \\
+\midrule
+Mistral 0-S  + RegEx & 0.932  &   0.739   &   0.768 &   0.754  & 0.924  \\
+Mistral F-S  + RegEx &  0.899  &   0.627   &  0.029   &   0.055 & 0.892  \\
+Llama 0-S  + RegEx & 0.951   &   0.814   &   0.824 &   0.819 & 0.929   \\
+Llama F-S  + RegEx &  0.919  &   0.726   &  0.644   &   0.683 & 0.900  \\
+GPT-OSS 0-S + RegEx & 0.819  &   0.333   &   0.334  &   0.333 & 0.040  \\
+GPT-OSS F-S + RegEx & 0.967  &   0.883   &   0.871  &   0.877  & 0.941\\
+Mistral F-S Implausible values + RegEx &  0.864  &   0.457   &  0.323   &   0.311 & 0.509 \\
+Llama F-S Implausible values + RegEx &  0.944  &  0.794  &  0.790  & 0.792 & 0.932  \\
+GPT-OSS F-S Implausible values + RegEx & \textbf{0.968} &  \textbf{0.885}   &  0.877 &  0.881 & \textbf{0.944} \\
+\midrule
+Constrained Generation &  & &  &  \\
+\midrule
+Mistral 0-S Constrained & 0.893  &   0.612   &   0.571 &   0.591  & 0.906  \\
+Mistral F-S Constrained &  0.909  &   0.754   &  0.488   &   0.593 & 0.903   \\
+Llama 0-S Constrained &  0.951  & 0.837  &  0.796 & 0.816 & 0.919 \\
+Llama F-S Constrained &  0.920  & 0.691  &  0.736 & 0.713 & 0.907 \\
+GPT-OSS 0-S Constrained & 0.917  &   0.657   &   0.803  &   0.723 & 0.860  \\
+GPT-OSS F-S Constrained & 0.905  &   0.605   &   0.868  &   0.713 & 0.734  \\
+Mistral F-S Implausible values Constrained & 0.915  &   0.798   &   0.496  &   0.612 & 0.931  \\
+Llama F-S Implausible values Constrained & 0.880  &   0.749   &   0.177  &   0.286 & 0.901 \\
+GPT-OSS F-S Implausible values Constrained & 0.932  &   0.706   &   0.852  &   0.772 & 0.876 \\
+%\midrule
+%Constraint Generation and RegEx &  & &  &  \\
+%\midrule
+Mistral 0-S Constrained + RegEx & 0.896  &   0.628   &   0.568 &   0.596  & 0.908  \\
+Mistral F-S Constrained + RegEx &  0.910  &   0.768   &  0.485   &   0.594 & 0.906  \\
+Llama 0-S Constrained + RegEx & 0.949 & 0.838 & 0.777 & 0.806 & 0.922 \\
+Llama F-S Constrained + RegEx & 0.930 & 0.753 & 0.714 & 0.733 & 0.916 \\
+GPT-OSS 0-S Constrained + RegEx & 0.948  &   0.858   &   0.739  &   0.794 & 0.930  \\
+GPT-OSS F-S Constrained + RegEx & 0.936  &   0.805   &   0.695  &   0.746 & 0.912 \\
+Mistral F-S Implausible values Constrained + RegEx & 0.914  &   0.798   &   0.493  &   0.609 & 0.9322 \\
+Llama F-S Implausible values Constrained + RegEx & 0.880  &   0.754   &   0.176  &   0.286 & 0.903  \\
+GPT-OSS F-S Implausible values Constrained + RegEx & 0.950  &   0.820   &   0.810  &   0.815 & 0.918 \\
+\midrule
+Medical Models &  & &  &  \\
+\midrule
+MedGemma 0-S & 0.848 & 0.401 & 0.246 & 0.305 & 0.030\\
+MedGemma F-S & 0.836 & 0.339 & 0.219 & 0.266 & 0.050 \\
+MedGemma F-S Implausible & 0.915 & 0.831 & 0.470 & 0.600 & 0.916 \\
+MedLlama 0-S Constrained & 0.864 & 0.500 & 0.001 & 0.001 & 0.00 \\
+MedLlama F-S Constrained &  0.780  & 0.198  &  0.202 & 0.200 & 0.620 \\
+MedLlama F-S Implausible Constrained & 0.880 & 0.749 & 0.177 & 0.286 & 0.901 \\
+MedGemma 0-S Constrained & 0.871  &   0.526   &   0.509 &   0.517 & 0.834   \\
+MedGemma F-S Constrained &  0.856  &   0.476   &  0.599   &  0.531 & 0.838  \\
+MedGemma F-S Implausible Constrained & 0.900 & 0.649 & 0.573 & 0.608 & 0.874 \\
+MedLlama 0-S Constrained + RegEx & 0.864 & 0.000 & 0.000 & 0.000 & NA \\
+MedLlama F-S Constrained + RegEx &  0.842 & 0.333  &  0.165 & 0.221  & 0.751 \\
+MedLlama F-S Implausible Constrained + RegEx & 0.880 & 0.754 & 0.176 & 0.286 & 0.903 \\
+MedGemma 0-S + RegEx &  0.848 & 0.399 & 0.240 & 0.300 & 0.031 \\
+MedGemma F-S + RegEx & 0.837 & 0.339 & 0.213 & 0.262 & 0.052 \\
+MedGemma F-S Implausible Regex & 0.919 & 0.887 & 0.460 & 0.606 & 0.928 \\
+MedGemma 0-S Constrained + RegEx & 0.877  &   0.552 &   0.499 &   0.524  & 0.847  \\
+MedGemma F-S Constrained + RegEx &  0.871  &   0.523 &  0.585 & 0.552 & 0.852  \\
+MedGemma F-S Implausible Constrained + RegEx & 0.903 & 0.669 & 0.566 & 0.614 & 0.881 \\
+\bottomrule
+\end{tabular}

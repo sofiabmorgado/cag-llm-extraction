@@ -1,0 +1,68 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "type": "object",
+  "properties": {
+    "Tipo": {
+      "type": ["string"],
+      "enum": ["Coronariografia", "Coronariografia e Angioplastia"],
+      "description": "O relatório inclui informação relativa ao procedimento de coronariografia e, caso tenha sido realizada no mesmo momento, angioplastia. Vais ler um relatório e avaliar se o procedimento incluiu coronariografia e angioplastia ou apenas coronariografia. Para perceberes se a angioplastia foi realmente realizada, procura no relatório a sua menção explicita, ou a descrição do procedimento de angioplastia, como por exemplo a descrição da implantação de um stent. Para além disso, normalmente, um valor de FFR superior a 0.8 e de iFR superior a 0.89 indicam que não há critério para a realização da angioplastia. Classifica o procedimento como Coronariografia, no caso do procedimento apenas incluir coronariografia, ou Coronariografia e Angioplastia, no caso de se ter realizado também uma angioplastia. Responde apenas com a tua classificação, sem incluir mais texto na tua resposta, e sem justificar."
+    },
+
+    "Tronco_Comum_FFR": {
+      "type": ["number", "null"],
+      "description": "Extrai o valor de FFR no Tronco Comum. Extrair apenas o valor decimal. Nunca deves incluir valores que não estão presentes no relatório. Em caso de dúvida, não extraias nenhum valor. Nenhum outro tipo de informação deve ser preenchida, como palavras ou frases. Nunca coloques um valor que não está presente no relatório. Em caso de dúvida, preenche com null. Quando há mais de uma medição de FFR ou iFR para a mesma atéria, inclui o valor mais baixo."
+    },
+    "Descendente_Anterior_FFR": {
+      "type": ["number", "null"],
+      "description": "Extrai o valor de FFR na Descendente Anterior ou DA. Extrair apenas o valor decimal. Nunca deves incluir valores que não estão presentes no relatório. Em caso de dúvida, não extraias nenhum valor. Nenhum outro tipo de informação deve ser preenchida, como palavras ou frases. Nunca coloques um valor que não está presente no relatório. Em caso de dúvida, preenche com null.Quando há mais de uma medição para esta artéria, inclui o valor mais baixo."
+    },
+    "Circunflexa_FFR": {
+      "type": ["number", "null"],
+      "description": "Extrai o valor de FFR na Circunflexa. Extrair apenas o valor decimal. Nunca deves incluir valores que não estão presentes no relatório. Em caso de dúvida, não extraias nenhum valor. Nenhum outro tipo de informação deve ser preenchida, como palavras ou frases. Nunca coloques um valor que não está presente no relatório. Em caso de dúvida, preenche com null. Quando há mais de uma medição para esta artéria, inclui o valor mais baixo."
+    },
+    "Coronária_Direita_FFR": {
+      "type": ["number", "null"],
+      "description": "Extrai o valor de FFR na Coronária Direita. Extrair apenas o valor decimal. Nunca deves incluir valores que não estão presentes no relatório. Em caso de dúvida, não extraias nenhum valor. Nenhum outro tipo de informação deve ser preenchida, como palavras ou frases. Nunca coloques um valor que não está presente no relatório. Em caso de dúvida, preenche com null. Quando há mais de uma medição para esta artéria, inclui o valor mais baixo."
+    },
+    "Outras_artérias_FFR": {
+      "type": ["number", "null"],
+      "description": "Extrai o valor de FFR em outras artérias que não o tronco comum, a descentente anterior, a circunflexa e a coronária direita. Extrair apenas o valor decimal. Nunca deves incluir valores que não estão presentes no relatório. Em caso de dúvida, não extraias nenhum valor. Nenhum outro tipo de informação deve ser preenchida, como palavras ou frases. Nunca coloques um valor que não está presente no relatório. Em caso de dúvida, preenche com null. Quando há mais de uma medição para esta artéria, inclui o valor mais baixo."
+    },
+
+    "Tronco_Comum_iFR": {
+      "type": ["number", "null"],
+      "description": "Extrai o valor de iFR no Tronco Comum. Extrair apenas o valor decimal. Nunca deves incluir valores que não estão presentes no relatório. Em caso de dúvida, não extraias nenhum valor. Nenhum outro tipo de informação deve ser preenchida, como palavras ou frases. Nunca coloques um valor que não está presente no relatório. Em caso de dúvida, preenche com null. Quando há mais de uma medição para esta artéria, inclui o valor mais baixo."
+    },
+    "Descendente_Anterior_iFR": {
+      "type": ["number", "null"],
+      "description": "Extrai o valor de iFR na Descendente Anterior. Extrair apenas o valor decimal. Nunca deves incluir valores que não estão presentes no relatório. Em caso de dúvida, não extraias nenhum valor. Nenhum outro tipo de informação deve ser preenchida, como palavras ou frases. Nunca coloques um valor que não está presente no relatório. Em caso de dúvida, preenche com null. Quando há mais de uma medição para esta artéria, inclui o valor mais baixo."
+    },
+    "Circunflexa_iFR": {
+      "type": ["number", "null"],
+      "description": "Extrai o valor de iFR na Circunflexa. Extrair apenas o valor decimal. Nunca deves incluir valores que não estão presentes no relatório. Em caso de dúvida, não extraias nenhum valor. Nenhum outro tipo de informação deve ser preenchida, como palavras ou frases. Nunca coloques um valor que não está presente no relatório. Em caso de dúvida, preenche com null. Quando há mais de uma medição para esta artéria, inclui o valor mais baixo."
+    },
+    "Coronária_Direita_iFR": {
+      "type": ["number", "null"],
+      "description": "Extrai o valor de iFR na Coronária Direita. Extrair apenas o valor decimal. Nunca deves incluir valores que não estão presentes no relatório. Em caso de dúvida, não extraias nenhum valor. Nenhum outro tipo de informação deve ser preenchida, como palavras ou frases. Nunca coloques um valor que não está presente no relatório. Em caso de dúvida, preenche com null. Quando há mais de uma medição para esta artéria, inclui o valor mais baixo."
+    },
+    "Outras_artérias_iFR": {
+      "type": ["number", "null"],
+      "description": "Extrai o valor de iFR em outras artérias que não o tronco comum, a descentente anterior, a circunflexa e a coronária direita. Extrair apenas o valor decimal. Nunca deves incluir valores que não estão presentes no relatório. Em caso de dúvida, não extraias nenhum valor. Nenhum outro tipo de informação deve ser preenchida, como palavras ou frases. Nunca coloques um valor que não está presente no relatório. Em caso de dúvida, preenche com null. Quando há mais de uma medição para esta artéria, inclui o valor mais baixo."
+    }
+  },
+
+  "required": [
+    "Tipo",
+    "Tronco_Comum_FFR",
+    "Descendente_Anterior_FFR",
+    "Circunflexa_FFR",
+    "Coronária_Direita_FFR",
+    "Outras_artérias_FFR",
+    "Tronco_Comum_iFR",
+    "Descendente_Anterior_iFR",
+    "Circunflexa_iFR",
+    "Coronária_Direita_iFR",
+    "Outras_artérias_iFR"
+  ],
+  "additionalProperties": false
+}
