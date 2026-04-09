@@ -57,6 +57,9 @@ This repository evaluates different strategies for extracting coronary physiolog
 - `data/examples_implausible.csv`  
   Few-shot examples including implausible values.
 
+- `prompt_translations.tex`  
+  Translation to English of the prompt examples from the paper.  
+
 ---
 
 

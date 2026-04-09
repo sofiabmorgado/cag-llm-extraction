@@ -1,0 +1,117 @@
+\begin{center}
+\footnotesize 
+\begin{minipage}{0.49\textwidth}
+\textit{\textbf{Original JSON Template (T1) for Zero-Shot Prompt
+}
+}
+\begin{Verbatim}[breaklines=true, breaksymbolleft={}, breaksymbolright={}]
+
+You are an expert in angiography/coronary angiography and angioplasty reports. The report includes information related to physiological indices: fractional flow reserve or FFR and instant wave-free ratio or iFR. Extract from the text the correct FFR and iFR values and complete the following JSON template with the correct values for each artery (when the value is not present in the report, keep "null"). 
+Template:
+
+    {
+    "Left_Main_FFR": null,
+    "Left_Main_iFR": null,
+    "Left_Anterior_Descending_FFR": null,    
+    "Left_Anterior_Descending_iFR": null, 
+    "Circumflex_FFR": null,
+    "Circumflex_iFR": null,
+    "Right_Coronary_Artery_FFR": null,
+    "Right_Coronary_Artery_iFR": null,
+    "Other_Arteries_FFR": null,
+    "Other_Arteries_iFR": null
+    }
+    
+Report: |<REPORT>|
+
+Respond only with the completed template, without including any additional text in your response, and without justification. Your response must be a valid JSON.
+For each FFR or iFR value in the template, you must only provide a decimal number. No other type of information should be included, such as words or sentences. Never provide a value that is not present in the report. In case of doubt, fill with null. When there is more than one FFR or iFR measurement for the same artery, include the lowest value.
+
+\end{Verbatim}
+\end{minipage}
+\end{center}
+
+
+
+\begin{center}
+\footnotesize 
+\begin{minipage}{0.45\textwidth}
+\textit{\textbf{Hierarchical JSON Template (T2) for Zero-Shot Prompt} }
+\begin{Verbatim}[breaklines=true, breaksymbolleft={}, breaksymbolright={}]
+
+[...]
+Template:
+    {
+  "Left Main": {
+    "FFR": null,
+    "iFR": null
+  },
+  "Left Anterior Descending": {
+    "FFR": null,
+    "iFR": null
+  },
+  "Circumflex": {
+    "FFR": null,
+    "iFR": null
+  },
+  "Right Coronary Artery": {
+    "FFR": null,
+    "iFR": null
+  },
+  "Other arteries": {
+    "FFR": null,
+    "iFR": null
+  }
+}
+
+[...]
+
+\end{Verbatim}
+\end{minipage}
+\end{center}
+
+
+
+\begin{center}
+\footnotesize 
+\begin{minipage}{0.49\textwidth}
+\textit{\textbf{Constrained Zero-Shot Prompt}}
+\begin{Verbatim}[breaklines=true, breaksymbolleft={}, breaksymbolright={}]
+
+You are an expert in angiography/coronary angiography and angioplasty reports. The report includes information related to physiological indices: fractional flow reserve or FFR and instant wave-free ratio or iFR. Provide as output a valid JSON. Use these descriptions as reference: [Field descriptions from JSON Output Schema]
+
+\end{Verbatim}
+\end{minipage}
+\end{center}
+
+
+\begin{center}
+\footnotesize 
+\begin{minipage}{0.45\textwidth}
+\textit{\textbf{JSON Schema for Constrained Generation}}
+
+\begin{Verbatim}[breaklines=true, breaksymbolleft={}, breaksymbolright={}]
+
+{
+  "schema": "http://json-schema.org/draft-07
+  /schema#",
+  "type": "object",
+  "properties": {
+    "Left_Main_FFR": {
+      "type": ["number", "null"],
+      "description": "Extract the FFR value in the Left Main. Extract only the decimal value. Never include values not present in the report. In case of doubt, fill with null. When there is more than one measurement, include the lowest value."
+    },
+
+    [...]
+
+    "Left_Main_iFR": {
+      "type": ["number", "null"],
+      "description": "Extract the iFR value in the Left Main. Extract only the decimal value. Never include values not present in the report. In case of doubt, fill with null. When there is more than one measurement, include the lowest value."
+    },
+
+    [...]
+  },
+}
+\end{Verbatim}
+\end{minipage}
+\end{center}
